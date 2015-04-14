@@ -40,19 +40,19 @@ void displayObjects(int frame_no)
 
     glPushMatrix();
 
+	   glScalef(0.8, 0.8, 0.8);
        glRotatef( 30.0, 1.0, 0.0, 0.0 );
 
           glPushMatrix();
-             glTranslatef( -0.80, 0.35, 0.0 ); 
+             glTranslatef( -1.5, 1.5, 0.0 ); 
              glRotatef( 100.0, 1.0, 0.0, 0.0 );
-			 glRotatef(10.0 * frame_no, 0.0, 0.0, 1.0);
-			 glScalef(0.5, 0.5, 0.5);
+			 glRotatef(1.0 * frame_no, 1.0, 0.0, 0.0);
              glMaterialfv( GL_FRONT, GL_DIFFUSE, torus_diffuse );
              glutSolidTorus( 0.275, 0.85, 10, 10 );
           glPopMatrix();
 
          glPushMatrix();
-            glTranslatef( -0.75, -0.50, 0.0 ); 
+            glTranslatef( -1.5, -1.5, 0.0 ); 
             glRotatef( 45.0, 0.0, 0.0, 1.0 );
             glRotatef( 45.0, 1.0, 0.0, 0.0 );
             glMaterialfv( GL_FRONT, GL_DIFFUSE, cube_diffuse );
@@ -60,14 +60,14 @@ void displayObjects(int frame_no)
          glPopMatrix();
 
          glPushMatrix();
-             glTranslatef( 0.75, 0.60, 0.0 ); 
+             glTranslatef( 1.5, 1.5, 0.0 ); 
              glRotatef( 30.0, 1.0, 0.0, 0.0 );
 	     glMaterialfv( GL_FRONT, GL_DIFFUSE, sphere_diffuse );
              glutSolidSphere( 1.0, 10, 10 );
          glPopMatrix();
 
          glPushMatrix();
-            glTranslatef( 0.70, -0.90, 0.25 ); 
+            glTranslatef( 1.5, -1.5, 0.0 ); 
             glMaterialfv( GL_FRONT, GL_DIFFUSE, octa_diffuse );
 	        glutSolidTeapot( 1.0 );
          glPopMatrix();
