@@ -30,7 +30,7 @@ void init()
     glEnable( GL_DEPTH_TEST );
 }
 
-void displayObjects()
+void displayObjects(int frame_no)
 {
     GLfloat torus_diffuse[]  = { 0.7, 0.7, 0.0, 1.0 };
     GLfloat cube_diffuse[]   = { 0.0, 0.7, 0.7, 1.0 };
@@ -44,6 +44,7 @@ void displayObjects()
           glPushMatrix();
              glTranslatef( -0.80, 0.35, 0.0 ); 
              glRotatef( 100.0, 1.0, 0.0, 0.0 );
+			 glRotatef(10.0 * frame_no, 0.0, 0.0, 1.0);
              glMaterialfv( GL_FRONT, GL_DIFFUSE, torus_diffuse );
              glutSolidTorus( 0.275, 0.85, 10, 10 );
           glPopMatrix();
@@ -74,10 +75,16 @@ void displayObjects()
 
 void display()
 {
+	static int frame_no = 0;
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-    displayObjects();
+    displayObjects(frame_no);
     glFlush();
 	glutSwapBuffers();
+	++frame_no;
+	if (frame_no > 360)
+	{
+		frame_no = 0;
+	}
 }
 
 void reshape(GLsizei w, GLsizei h)
