@@ -111,11 +111,14 @@ void reshape(GLsizei w, GLsizei h)
       glMatrixMode( GL_PROJECTION );
       glLoadIdentity();
       if( w <= h ) {
-         glOrtho( -2.25, 2.25, -2.25*h/w, 2.25*h/w, -10.0, 10.0 );
+         //glOrtho( -2.25, 2.25, -2.25*h/w, 2.25*h/w, -10.0, 10.0 );
+		  glFrustum(-1.5, 1.5, -1.5 * h / w, 1.5 * h / w, 1.0, 10.0);
       }
       else {
-         glOrtho( -2.25*w/h, 2.25*w/h, -2.25, 2.25, -10.0, 10.0 );
+		  //glOrtho(-2.25*w / h, 2.25*w / h, -2.25, 2.25, -10.0, 10.0);
+		  glFrustum(-1.5 * w / h, 1.5 * w / h, -1.5, 1.5, 1.0, 10.0);
       }
+	  glTranslatef(0.0, 0.0, -5.5);
       glMatrixMode( GL_MODELVIEW );
     }
 }
