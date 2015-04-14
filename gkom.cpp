@@ -40,7 +40,6 @@ void displayObjects(int frame_no)
 
     glPushMatrix();
 	{
-		glScalef(0.8, 0.8, 0.8);
 		glRotatef(30.0, 1.0, 0.0, 0.0);
 		glPushMatrix();
 		{
@@ -86,6 +85,13 @@ void displayObjects(int frame_no)
 		    glPopMatrix();
 		}
 		glPopMatrix();
+
+		glPushMatrix();
+		{
+			glMaterialfv(GL_FRONT, GL_DIFFUSE, cube_diffuse);
+			glutSolidCube(1.5);
+		}
+		glPopMatrix();
 	}
 	glPopMatrix();	 
 }
@@ -93,10 +99,22 @@ void displayObjects(int frame_no)
 void display()
 {
 	static int frame_no = 0;
-    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-    displayObjects(frame_no);
+
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	{
+		glRotatef(1.0 * frame_no, 0.0, 1.0, 0.0);
+		glMatrixMode(GL_MODELVIEW);
+		displayObjects(frame_no);
+		glMatrixMode(GL_PROJECTION);
+	}
+	glPopMatrix();
+
     glFlush();
 	glutSwapBuffers();
+
 	++frame_no;
 	if (frame_no > 360)
 	{
@@ -114,7 +132,8 @@ void reshape(GLsizei w, GLsizei h)
          //glOrtho( -2.25, 2.25, -2.25*h/w, 2.25*h/w, -10.0, 10.0 );
 		  glFrustum(-1.5, 1.5, -1.5 * h / w, 1.5 * h / w, 1.0, 10.0);
       }
-      else {
+      else
+	  {
 		  //glOrtho(-2.25*w / h, 2.25*w / h, -2.25, 2.25, -10.0, 10.0);
 		  glFrustum(-1.5 * w / h, 1.5 * w / h, -1.5, 1.5, 1.0, 10.0);
       }
