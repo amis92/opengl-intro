@@ -45,49 +45,49 @@ void displayObjects(int frame_no)
 		glPushMatrix();
 		{
 			glRotatef(1.0 * frame_no, 0.0, 1.0, 0.0);
-			   glPushMatrix();
-			   {
-				   glTranslatef(-1.5, 1.5, 0.0);
-				   glRotatef(100.0, 1.0, 0.0, 0.0);
-				   glRotatef(1.0 * frame_no, 1.0, 0.0, 0.0);
-				   glMaterialfv(GL_FRONT, GL_DIFFUSE, torus_diffuse);
-				   glutSolidTorus(0.275, 0.85, 10, 10);
-			   }
-			   glPopMatrix();
-			   glPushMatrix();
-			   {
-				   glTranslatef(1.5, 1.5, 0.0);
-				   glRotatef(30.0, 1.0, 0.0, 0.0);
-				   glMaterialfv(GL_FRONT, GL_DIFFUSE, sphere_diffuse);
-				   glutSolidSphere(1.0, 10, 10);
-			   }
-			   glPopMatrix();
-		   }
-		   glPopMatrix();
+			glPushMatrix();
+			{
+			 glTranslatef(-1.5, 1.5, 0.0);
+			 glRotatef(100.0, 1.0, 0.0, 0.0);
+			 glRotatef(1.0 * frame_no, 1.0, 0.0, 0.0);
+			 glMaterialfv(GL_FRONT, GL_DIFFUSE, torus_diffuse);
+			 glutSolidTorus(0.275, 0.85, 10, 10);
+			}
+			glPopMatrix();
+			glPushMatrix();
+			{
+			 glTranslatef(1.5, 1.5, 0.0);
+			 glRotatef(30.0, 1.0, 0.0, 0.0);
+			 glMaterialfv(GL_FRONT, GL_DIFFUSE, sphere_diffuse);
+			 glutSolidSphere(1.0, 10, 10);
+			}
+			glPopMatrix();
+		}
+		glPopMatrix();
 
-		   glPushMatrix();
-		   {
-			   glRotatef(-1.0 * frame_no, 0.0, 1.0, 0.0);
-			   glPushMatrix();
-			   {
-				   glTranslatef(-1.5, -1.5, 0.0);
-				   glRotatef(45.0, 0.0, 0.0, 1.0);
-				   glRotatef(45.0, 1.0, 0.0, 0.0);
-				   glMaterialfv(GL_FRONT, GL_DIFFUSE, cube_diffuse);
-				   glutSolidCube(1.5);
-			   }
-			   glPopMatrix();
-			   glPushMatrix();
-			   {
-				   glTranslatef(1.5, -1.5, 0.0);
-				   glMaterialfv(GL_FRONT, GL_DIFFUSE, octa_diffuse);
-				   glutSolidTeapot(1.0);
-			   }
-			   glPopMatrix();
-		   }
-		   glPopMatrix();
-	   }
-   glPopMatrix();	 
+		glPushMatrix();
+		{
+		    glRotatef(-1.0 * frame_no, 0.0, 1.0, 0.0);
+		    glPushMatrix();
+		    {
+				glTranslatef(-1.5, -1.5, 0.0);
+		        glRotatef(45.0, 0.0, 0.0, 1.0);
+		        glRotatef(45.0, 1.0, 0.0, 0.0);
+		        glMaterialfv(GL_FRONT, GL_DIFFUSE, cube_diffuse);
+		        glutSolidCube(1.5);
+		    }
+		    glPopMatrix();
+		    glPushMatrix();
+		    {
+		        glTranslatef(1.5, -1.5, 0.0);
+		        glMaterialfv(GL_FRONT, GL_DIFFUSE, octa_diffuse);
+		        glutSolidTeapot(1.0);
+		    }
+		    glPopMatrix();
+		}
+		glPopMatrix();
+	}
+	glPopMatrix();	 
 }
 
 void display()
