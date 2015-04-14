@@ -21,10 +21,11 @@ void init()
     glLightfv( GL_LIGHT0, GL_POSITION, light_position );
     glLightModelfv( GL_LIGHT_MODEL_AMBIENT, lm_ambient );
     
-    glShadeModel( GL_FLAT );
+    glShadeModel( GL_SMOOTH );
 
     glEnable( GL_LIGHTING );
-    glEnable( GL_LIGHT0 );
+	glEnable(GL_LIGHT0);
+	glEnable(GL_NORMALIZE);
 
     glDepthFunc( GL_LESS );
     glEnable( GL_DEPTH_TEST );
