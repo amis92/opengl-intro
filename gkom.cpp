@@ -45,6 +45,7 @@ void displayObjects(int frame_no)
              glTranslatef( -0.80, 0.35, 0.0 ); 
              glRotatef( 100.0, 1.0, 0.0, 0.0 );
 			 glRotatef(10.0 * frame_no, 0.0, 0.0, 1.0);
+			 glScalef(0.5, 0.5, 0.5);
              glMaterialfv( GL_FRONT, GL_DIFFUSE, torus_diffuse );
              glutSolidTorus( 0.275, 0.85, 10, 10 );
           glPopMatrix();
